@@ -8,7 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AutocompleteTypes, Color, TextFieldTypes } from "./components/interfaces";
 import { InputChangeEventDetail } from "./components/ui-input/ui-input";
 export namespace Components {
-    interface MyInput {
+    interface PageHome {
+    }
+    interface UiInput {
         /**
           * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
          */
@@ -126,29 +128,29 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
-    interface PageHome {
-    }
 }
 declare global {
-    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
-    }
-    var HTMLMyInputElement: {
-        prototype: HTMLMyInputElement;
-        new (): HTMLMyInputElement;
-    };
     interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
     }
     var HTMLPageHomeElement: {
         prototype: HTMLPageHomeElement;
         new (): HTMLPageHomeElement;
     };
+    interface HTMLUiInputElement extends Components.UiInput, HTMLStencilElement {
+    }
+    var HTMLUiInputElement: {
+        prototype: HTMLUiInputElement;
+        new (): HTMLUiInputElement;
+    };
     interface HTMLElementTagNameMap {
-        "my-input": HTMLMyInputElement;
         "page-home": HTMLPageHomeElement;
+        "ui-input": HTMLUiInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyInput {
+    interface PageHome {
+    }
+    interface UiInput {
         /**
           * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
          */
@@ -274,19 +276,17 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
-    interface PageHome {
-    }
     interface IntrinsicElements {
-        "my-input": MyInput;
         "page-home": PageHome;
+        "ui-input": UiInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
+            "ui-input": LocalJSX.UiInput & JSXBase.HTMLAttributes<HTMLUiInputElement>;
         }
     }
 }
