@@ -10,7 +10,7 @@ export interface InputChangeEventDetail {
  * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
  */
 @Component({
-  tag: 'my-input',
+  tag: 'ui-input',
   scoped: true,
 })
 export class Input implements ComponentInterface {
