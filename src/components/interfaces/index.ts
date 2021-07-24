@@ -70,7 +70,7 @@ export type Color = PredefinedColors | string;
 export type Mode = 'ios' | 'md';
 export type ComponentTags = string;
 export type ComponentRef = Function | HTMLElement | string | null;
-export type ComponentProps<T = null> = { [key: string]: any };
+export type ComponentProps = { [key: string]: any };
 export type CssClassMap = { [className: string]: boolean };
 
 export interface OverlayInterface {

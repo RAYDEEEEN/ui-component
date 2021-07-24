@@ -25,8 +25,8 @@ export const config: Config = {
   namespace: 'ui-component',
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: '@raydeeeen/ui-component',
-      directivesProxyFile: './@raydeeeen/ui-component-angular/components.ts',
+      componentCorePackage: 'ui-component',
+      directivesProxyFile: '../ui-component-angular/src/directives/proxies.ts',
       valueAccessorConfigs: valueAcessorConfig
     }),
     {
