@@ -27,6 +27,6 @@ jobs:
       - name: Build components
         run: npm build
       - name: Publish package
-        run: npm run publish:lib
+        run: npm run publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.TEAMY_SECRET}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_SECRET}}
