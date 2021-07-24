@@ -9,27 +9,6 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
-        registry-url: https://npm.pkg.github.com/
-    - name: Installed packages
-      run: npm install
-    - name: Linter
-      run: npm run lint
-    - name: Linter Styles
-      run: npm run lint:style
-    - name: Build package
-      run: npm run build:lib
-
-  release:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -45,6 +24,8 @@ jobs:
           git config --global user.email 'app.teamy.dev@gmail.com'
       - name: Installed packages
         run: npm install
+      - name: Build components
+        run: npm build
       - name: Publish package
         run: npm run publish:lib
         env:
