@@ -1,5 +1,16 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Method, Prop, State, Watch, h } from '@stencil/core';
-
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch
+} from '@stencil/core';
 import { AutocompleteTypes, Color, TextFieldTypes } from '../interfaces';
 
 export interface InputChangeEventDetail {
@@ -11,7 +22,7 @@ export interface InputChangeEventDetail {
  */
 @Component({
   tag: 'ui-input',
-  scoped: true,
+  scoped: true
 })
 export class Input implements ComponentInterface {
   private nativeInput?: HTMLInputElement;
@@ -75,14 +86,29 @@ export class Input implements ComponentInterface {
    * Possible values: `"enter"`, `"done"`, `"go"`, `"next"`,
    * `"previous"`, `"search"`, and `"send"`.
    */
-  @Prop() enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+  @Prop() enterkeyhint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send';
 
   /**
    * A hint to the browser for which keyboard to display.
    * Possible values: `"none"`, `"text"`, `"tel"`, `"url"`,
    * `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
    */
-  @Prop() inputmode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+  @Prop() inputmode?:
+    | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
 
   /**
    * The maximum value, which must not be less than its minimum (min attribute) value.
@@ -165,7 +191,9 @@ export class Input implements ComponentInterface {
    */
   @Watch('value')
   protected valueChanged() {
-    this.myChange.emit({ value: this.value == null ? this.value : this.value.toString() });
+    this.myChange.emit({
+      value: this.value == null ? this.value : this.value.toString()
+    });
   }
 
   /**
@@ -224,7 +252,9 @@ export class Input implements ComponentInterface {
   }
 
   private getValue(): string {
-    return typeof this.value === 'number' ? this.value.toString() : (this.value || '').toString();
+    return typeof this.value === 'number'
+      ? this.value.toString()
+      : (this.value || '').toString();
   }
 
   private onInput = (ev: Event) => {
@@ -301,7 +331,7 @@ export class Input implements ComponentInterface {
         aria-disabled={this.disabled ? 'true' : null}
         class={{
           'has-value': this.hasValue(),
-          'has-focus': this.hasFocus,
+          'has-focus': this.hasFocus
         }}
       >
         <input
@@ -338,7 +368,13 @@ export class Input implements ComponentInterface {
           onKeyDown={this.onKeydown}
         />
         {this.clearInput && !this.readonly && !this.disabled && (
-          <button type="button" class="input-clear-icon" tabindex="-1" onTouchStart={this.clearTextInput} onMouseDown={this.clearTextInput} />
+          <button
+            type="button"
+            class="input-clear-icon"
+            tabindex="-1"
+            onTouchStart={this.clearTextInput}
+            onMouseDown={this.clearTextInput}
+          />
         )}
       </Host>
     );
