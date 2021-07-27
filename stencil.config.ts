@@ -31,7 +31,7 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage: '@raydeeeen/ui-component',
       directivesProxyFile:
-        '../ui-component-project/projects/ui-component-angular/src/lib/directives/proxies.ts',
+        '../ui-component-angular/projects/ui-component-angular/src/lib/directives/proxies.ts',
       valueAccessorConfigs: valueAcessorConfig
     }),
     reactOutputTarget({
