@@ -22,22 +22,26 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1",
-    "user": "0.0.0"
+    "@stencil/core": "^2.0.1"
   },
   "license": "MIT",
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.7",
+    "@stencil/postcss": "^2.0.0",
     "@stencil/react-output-target": "^0.0.9",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.1",
+    "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2"
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "stencil-tailwind": "^0.0.6",
+    "tailwindcss": "^2.2.7"
   },
   "repository": {
     "type": "git",

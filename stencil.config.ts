@@ -3,7 +3,10 @@ import {
   ValueAccessorConfig
 } from '@stencil/angular-output-target';
 import { Config } from '@stencil/core';
+import { postcss } from '@stencil/postcss';
 import { reactOutputTarget } from '@stencil/react-output-target';
+import tailwind from 'tailwindcss';
+import { TailwindConfig } from 'tailwindcss/tailwind-config';
 
 const TARGET_ATTRS = {
   CHECKED: 'checked',
@@ -25,8 +28,23 @@ const valueAcessorConfig: ValueAccessorConfig[] = [
   }
 ];
 
+const tailwindConfig: TailwindConfig = {
+  darkMode: false, // or 'media' or 'class'
+  plugins: []
+  // purge: ['./src/**/*.html', './src/**/*.js']
+} as TailwindConfig;
+
 export const config: Config = {
   namespace: 'ui-component',
+  globalStyle: './src/styles/style.css',
+  devServer: {
+    reloadStrategy: 'pageReload'
+  },
+  plugins: [
+    postcss({
+      plugins: [tailwind(tailwindConfig)]
+    })
+  ],
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@raydeeeen/ui-component',
